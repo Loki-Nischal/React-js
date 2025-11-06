@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Counterr = () => {
     // count -> state variable name
@@ -21,6 +21,34 @@ const Counterr = () => {
     const handleReset = () =>{
         setCount(0)
     }
+
+    //UseEfect() hook -> it lets you run side effects in a component
+    //Like fetching data, updating dom manually etc.
+
+    //1 without dependencies array -> runs on first component render and 
+    //also runs every time component re-render
+    // useEffect(()=>{
+    //       // code to run side effect
+    //       console.log("click")
+    // })
+
+   //2. with empty dependincies array -> only run on first render
+    // useEffect(()=>{
+    //     //code to run side effect
+    //     console.log('click')
+    // },[])
+
+    //3eith non-emprty dependencies array -> runs in first component render and 
+    //runs according to condition or state in dependencies array
+      useEffect(()=>{
+        //code to run side effect
+        console.log('click')
+    },[username])
+
+    // useEffect(()=>{
+    //     //logic to call api
+    //     console.log("click")
+    // },[])
 
   return (
     <div className="border border-slate-300 p-4 rounded-md w-80">
