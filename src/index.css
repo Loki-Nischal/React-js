@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+.container{
+    @apply max-w-6xl mx-auto px-4
+}
+
 .primary_button{
     @apply bg-slate-900 text-white px-6 py-2 rounded-md cursor-pointer
      hover:bg-slate-700
+}
+
+.outline_button{
+    @apply border border-slate-300 px-6 py-2 rounded-md cursor-pointer hover:bg-slate-50
 }
 
 label{
