@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -8,8 +9,15 @@ const Navbar = () => {
       </h1>
       {/* navbar */}
       <ul className="flex gap-6 text-slate-700 font-medium">
+        
+        <Link to ="/">
         <li>Home</li>
+        </Link>
+        
+        <Link to ="/products">
         <li>Product</li>
+        </Link>
+        
         <li>Contect</li>
         <li>About</li>
       </ul>
