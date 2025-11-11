@@ -7,6 +7,8 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 
 const App = () => {
   return (
+
+    // Parents compoments bata child components ma data pass props ko helps bata hunxa (argument jastai) 
     <div>
       <Routes>
         <Route element={<MainLayout/>}>
