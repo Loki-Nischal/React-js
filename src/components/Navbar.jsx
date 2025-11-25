@@ -1,6 +1,27 @@
+import { use } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { logout } from "../redux/authSlice"
+import { useUserStore } from "../zustand/authStore"
 
 const Navbar = () => {
+  
+ const dispatch = useDispatch()
+
+  //accessing user state from auth slice
+  // const {user} = useSelector(state => state.auth)
+  
+  // accessing user state from zustand -> authStore
+  const {user,clearUser} = useUserStore()
+
+  //handle logout
+  const handleLogout = () => { 
+    //dispatch logout action
+    // dispatch(logout())
+    clearUser()
+  }
+
+
   return (
 <div className="border-b border-slate-300 py-4">
   <div className="flex justify-between items-center container " >
@@ -22,10 +43,15 @@ const Navbar = () => {
         <li>About</li>
       </ul>
       {/* button */}
-         <div className="space-x-4">
+         {
+          user ? (<button onClick = {handleLogout} className="outline_button">logout</button>):
+         ( <div className="space-x-4">
            <button className="primary_button">Register</button>
+           <Link to = "/login">
            <button className="outline_button">Login</button>
-         </div>
+           </Link>
+         </div>)
+         }
    </div>
  </div>
   )

@@ -4,6 +4,10 @@ import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import Products from "./pages/Products";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import LoginPage from "./pages/LoginPage";
+import CartPage from "./pages/CartPage";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import AuthRedirectedRoute from "./utils/AuthRedirectedRoute";
 
 const App = () => {
   return (
@@ -13,9 +17,20 @@ const App = () => {
       <Routes>
         <Route element={<MainLayout/>}>
            <Route path ="/" element={<HomePage/>} />
-           <Route path ="/products" element={<Products/>} />
-           <Route path ="/product/:id" element={<ProductDetailPage/>} />
-        </Route>
+
+         
+          
+          <Route element = {<AuthRedirectedRoute/>}>
+              <Route path ="/login" element={<LoginPage/>} />
+          </Route>
+           
+             {/* protected route */}
+           <Route element = {<ProtectedRoute/>}>
+               <Route path ="/products" element={<Products/>} />
+               <Route path ="/product/:id" element={<ProductDetailPage/>} />
+           </Route>
+
+        </Route>  
 
         
      
